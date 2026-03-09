@@ -170,10 +170,10 @@ Qwen API 交互：
 如果本项目对你的研究有帮助，请引用：
 
 ```bibtex
-@misc{retriprm2025,
+@misc{retriprm2026,
   title={RetriPRM: Retrieval-Stage Process Reward Modeling for Multi-Hop RAG},
-  author={Your Name},
-  year={2025}
+  author={yyydddkkk},
+  year={2026}
 }
 ```
 
@@ -183,6 +183,6 @@ MIT License
 
 ## 联系方式
 
-- 作者：[Your Name]
-- 邮箱：[Your Email]
-- 项目主页：[GitHub URL]
+- 作者：jackyyyyyy
+- 邮箱：yangjackk04@gmail.com
+- 项目主页：https://github.com/yyydddkkk
