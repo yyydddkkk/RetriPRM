@@ -8,7 +8,7 @@
 
 ## 核心发现
 
-基于 HotpotQA 500 题的初步实验：
+基于 HotpotQA 5000 题的初步实验：
 
 - **83.8%** 的正确答案来自不完美检索（ECS < 1.0）—— 幸存者偏差
 - **44.0%** 的错误答案发生在检索正常的情况下（ECS ≥ 0.5）—— 隐性失败
@@ -101,7 +101,7 @@ uv run python experiments/02_bon_experiment.py
 **目标**：验证检索质量与答案正确性的解耦必要性
 
 **方法**：
-- 在 HotpotQA 上采样 500 题
+- 在 HotpotQA 上采样 5000 题
 - 使用 LLM 生成第二跳 Query（temperature=0.7）
 - 计算 ECS（Expected Coverage Score）评估检索质量
 - 统计幸存者偏差和隐性失败样本
@@ -162,8 +162,8 @@ Qwen API 交互：
 
 ## 成本估算
 
-- **Gap Analysis**：500 题 × 1 次调用 = ~2 元
-- **Best-of-N**：500 题 × 8 次调用 = ~15-20 元
+- **Gap Analysis**：5000 题 × 1 次调用 = ~20 元
+- **Best-of-N**：5000 题 × 8 次调用 = ~150-200 元
 
 ## 引用
 
