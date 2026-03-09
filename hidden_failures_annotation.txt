@@ -1,0 +1,775 @@
+================================================================================
+                                     人工标注指南                                     
+================================================================================
+
+【任务说明】
+以下是 20 题'检索正常但答错'的样本（所有跳 ECS >= 0.5，但答案错误）。
+请仔细阅读每题的推理轨迹，判断失败发生在哪个阶段。
+
+【失败原因分类】
+  A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  D. 其他原因 - 请在备注中说明
+
+【标注方法】
+在每题的【人工标注】部分，选择一个最符合的失败原因，在 [ ] 中填入 X。
+
+【统计汇总】
+标注完成后，请统计各类失败原因的数量，填写在文件末尾。
+
+
+================================================================================
+样本 #1
+================================================================================
+
+【问题】
+SS Ionic was built by the industrial company based in what city?
+
+【正确答案】
+Belfast, Northern Ireland
+
+【黄金支撑段落】
+  1. SS Ionic (1902)
+  2. Harland and Wolff
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. SS Ionic (1902)
+      SS Ionic was a steam-powered ocean liner built in 1902 by Harland and Wolff in Belfast for the White Star Line.  She was the second White Star Liner to be named "Ionic" and served on the United Kingdo...
+
+  [✗] 2. SS Rebecca Lukens
+      SS "Rebecca Lukens" (MC contract 1551) was a Liberty ship built in the United States during World War II.  She was the country's first Liberty ship named after a woman industrialist.  Dubbed "America'...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. SS Rebecca Lukens
+      SS "Rebecca Lukens" (MC contract 1551) was a Liberty ship built in the United States during World War II.  She was the country's first Liberty ship named after a woman industrialist.  Dubbed "America'...
+
+  [✓] 2. SS Ionic (1902)
+      SS Ionic was a steam-powered ocean liner built in 1902 by Harland and Wolff in Belfast for the White Star Line.  She was the second White Star Liner to be named "Ionic" and served on the United Kingdo...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #2
+================================================================================
+
+【问题】
+Armie Hammer stars as Oliver in a film directed by who ?
+
+【正确答案】
+Luca Guadagnino
+
+【黄金支撑段落】
+  1. Armie Hammer
+  2. Call Me by Your Name (film)
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. The Social Network
+      The Social Network is a 2010 American biographical drama film directed by David Fincher and written by Aaron Sorkin.  Adapted from Ben Mezrich's 2009 book "The Accidental Billionaires: The Founding of...
+
+  [✓] 2. Armie Hammer
+      Armand Douglas "Armie" Hammer (born August 28, 1986) is an American actor.  He is known for his portrayal of the Winklevoss twins in the film "The Social Network" (2010), Prince Andrew Alcott in "Mirr...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Armie Hammer
+      Armand Douglas "Armie" Hammer (born August 28, 1986) is an American actor.  He is known for his portrayal of the Winklevoss twins in the film "The Social Network" (2010), Prince Andrew Alcott in "Mirr...
+
+  [✗] 2. The Social Network
+      The Social Network is a 2010 American biographical drama film directed by David Fincher and written by Aaron Sorkin.  Adapted from Ben Mezrich's 2009 book "The Accidental Billionaires: The Founding of...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #3
+================================================================================
+
+【问题】
+Jalen Jones plays basketball for an NBA team that plays their home games in what arena?
+
+【正确答案】
+Smoothie King Center
+
+【黄金支撑段落】
+  1. Jalen Jones
+  2. New Orleans Pelicans
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Jalen Jones
+      Jalen Jones (born May 27, 1993) is an American professional basketball player for the New Orleans Pelicans of the National Basketball Association (NBA).  He was signed on a two-way contract with the N...
+
+  [✗] 2. Washington NBA G League team
+      The Washington NBA G League team is an American professional basketball team in the NBA G League and an affiliate of the Washington Wizards of the National Basketball Association.  Based in Washington...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Jalen Jones
+      Jalen Jones (born May 27, 1993) is an American professional basketball player for the New Orleans Pelicans of the National Basketball Association (NBA).  He was signed on a two-way contract with the N...
+
+  [✗] 2. Washington NBA G League team
+      The Washington NBA G League team is an American professional basketball team in the NBA G League and an affiliate of the Washington Wizards of the National Basketball Association.  Based in Washington...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #4
+================================================================================
+
+【问题】
+Johnny Mathis: Wonderful Wonderful aired at what luxury hotel, casino and spa resort located in Atlantic City, New Jersey?
+
+【正确答案】
+Tropicana Casino & Resort
+
+【黄金支撑段落】
+  1. Johnny Mathis: Wonderful, Wonderful!
+  2. Tropicana Casino &amp; Resort Atlantic City
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. Wonderful Wonderful (Johnny Mathis album)
+      Wonderful Wonderful is an album by American pop singer Johnny Mathis that was released in the summer of 1957 on the Columbia Records label but does not include his hit song of the same name or any of ...
+
+  [✓] 2. Johnny Mathis: Wonderful, Wonderful!
+      Johnny Mathis: Wonderful, Wonderful!  is a television concert by American pop singer Johnny Mathis that was recorded on October 27, 2006, at the Tropicana Hotel in Atlantic City and aired that Decembe...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Johnny Mathis: Wonderful, Wonderful!
+      Johnny Mathis: Wonderful, Wonderful!  is a television concert by American pop singer Johnny Mathis that was recorded on October 27, 2006, at the Tropicana Hotel in Atlantic City and aired that Decembe...
+
+  [✗] 2. Wonderful Wonderful (Johnny Mathis album)
+      Wonderful Wonderful is an album by American pop singer Johnny Mathis that was released in the summer of 1957 on the Columbia Records label but does not include his hit song of the same name or any of ...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #5
+================================================================================
+
+【问题】
+When did the the Antonine who was known as the third of the five good emperors live?
+
+【正确答案】
+24 January 76 – 10 July 138
+
+【黄金支撑段落】
+  1. Great Antonine Altar
+  2. Hadrian
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Great Antonine Altar
+      The Great Antonine Altar is a high relief monument discovered in Ephesus dating to around 169 CE.  The sculpture depicts The Antonines.  Beginning on the far left, Marcus Aurelius is pictured at 17-ye...
+
+  [✗] 2. Three Officials Temple Scenic Area
+      The Three Officials Temple Scenic Area () is a public park located on the southern bank of the Yellow River near the city center of Jinan, Shandong, China.  Within the park is the site of a former tem...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Three Officials Temple Scenic Area
+      The Three Officials Temple Scenic Area () is a public park located on the southern bank of the Yellow River near the city center of Jinan, Shandong, China.  Within the park is the site of a former tem...
+
+  [✓] 2. Great Antonine Altar
+      The Great Antonine Altar is a high relief monument discovered in Ephesus dating to around 169 CE.  The sculpture depicts The Antonines.  Beginning on the far left, Marcus Aurelius is pictured at 17-ye...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #6
+================================================================================
+
+【问题】
+ What term was used in the North-West Derby  to disparge their rivals?
+
+【正确答案】
+Mickey Mouse Cup
+
+【黄金支撑段落】
+  1. Mickey Mouse cup
+  2. Mickey Mouse cup
+  3. Liverpool F.C.–Manchester United F.C. rivalry
+  4. Liverpool F.C.–Manchester United F.C. rivalry
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Liverpool F.C.–Manchester United F.C. rivalry
+      The Liverpool F.C.–Manchester United F.C. rivalry, also known as the North-West Derby, is a high-profile inter-city rivalry between English professional football clubs Liverpool and Manchester United....
+
+  [✗] 2. North-west Derby (Ireland)
+      The North-west Derby is the name of the association football match played between Finn Harps and Derry City.
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Liverpool F.C.–Manchester United F.C. rivalry
+      The Liverpool F.C.–Manchester United F.C. rivalry, also known as the North-West Derby, is a high-profile inter-city rivalry between English professional football clubs Liverpool and Manchester United....
+
+  [✗] 2. North-west Derby (Ireland)
+      The North-west Derby is the name of the association football match played between Finn Harps and Derry City.
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #7
+================================================================================
+
+【问题】
+Who is writing a book about the Koch family who control the second-largest privately owned company in the United States?
+
+【正确答案】
+Jane Mayer
+
+【黄金支撑段落】
+  1. Dark Money (book)
+  2. Koch family
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Koch family
+      The Koch family ( ) is an American family engaged in business, most noted for their political activities and control of Koch Industries, the second-largest privately owned company in the United States...
+
+  [✗] 2. Binford &amp; Mort
+      Binford & Mort Publishing is a book publishing company located in Hillsboro, Oregon, United States.  Founded in 1930, the company was previously known as Metropolitan Press and Binfords & Mort.  At on...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Binford &amp; Mort
+      Binford & Mort Publishing is a book publishing company located in Hillsboro, Oregon, United States.  Founded in 1930, the company was previously known as Metropolitan Press and Binfords & Mort.  At on...
+
+  [✓] 2. Koch family
+      The Koch family ( ) is an American family engaged in business, most noted for their political activities and control of Koch Industries, the second-largest privately owned company in the United States...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #8
+================================================================================
+
+【问题】
+Ken Pruitt  was a Republican member of an upper house of the legislature with how many members ?
+
+【正确答案】
+40 members
+
+【黄金支撑段落】
+  1. Ken Pruitt
+  2. Florida Senate
+  3. Florida Senate
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Ken Pruitt
+      Ken Pruitt (born January 24, 1957) was a Republican member of the Florida Senate, representing the 28th District from 2000 to 2009.  His district includes portions of Indian River, Martin, Okeechobee,...
+
+  [✗] 2. Wisconsin Legislature
+      The Wisconsin Legislature is the state legislature of the U.S. state of Wisconsin.  The Legislature is a bicameral body composed of the upper house Wisconsin State Senate and the lower Wisconsin State...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Ken Pruitt
+      Ken Pruitt (born January 24, 1957) was a Republican member of the Florida Senate, representing the 28th District from 2000 to 2009.  His district includes portions of Indian River, Martin, Okeechobee,...
+
+  [✗] 2. Wisconsin Legislature
+      The Wisconsin Legislature is the state legislature of the U.S. state of Wisconsin.  The Legislature is a bicameral body composed of the upper house Wisconsin State Senate and the lower Wisconsin State...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #9
+================================================================================
+
+【问题】
+What county is Ron Teachworth from?
+
+【正确答案】
+Oakland County
+
+【黄金支撑段落】
+  1. Ron Teachworth
+  2. Rochester Hills, Michigan
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. Going Back (film)
+      Going Back is a 1983 American independent drama film written and directed by Ron Teachworth and starring Bruce Campbell and Christopher Howe.  It was Campbell's second feature film, produced shortly a...
+
+  [✓] 2. Ron Teachworth
+      Ronald S. Teachworth is an American artist, writer and film director from Rochester Hills, Michigan.
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Going Back (film)
+      Going Back is a 1983 American independent drama film written and directed by Ron Teachworth and starring Bruce Campbell and Christopher Howe.  It was Campbell's second feature film, produced shortly a...
+
+  [✓] 2. Ron Teachworth
+      Ronald S. Teachworth is an American artist, writer and film director from Rochester Hills, Michigan.
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #10
+================================================================================
+
+【问题】
+Are the films Gasland from 2010 and Pumping Iron from 1977 both documentaries?
+
+【正确答案】
+yes
+
+【黄金支撑段落】
+  1. Gasland
+  2. Pumping Iron
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Gasland
+      Gasland is a 2010 American documentary written and directed by Josh Fox.  Nominated for an Academy Award for Best Documentary in 2011, the film focuses on communities in the United States affected by ...
+
+  [✗] 2. Robby Robinson (bodybuilder)
+      Robby Robinson (born May 24, 1946) is an American former professional bodybuilder.  Known early in his career as Robin Robinson, he is also known as The Black Prince and Mr Lifestyle.  He won various ...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Gasland
+      Gasland is a 2010 American documentary written and directed by Josh Fox.  Nominated for an Academy Award for Best Documentary in 2011, the film focuses on communities in the United States affected by ...
+
+  [✗] 2. Robby Robinson (bodybuilder)
+      Robby Robinson (born May 24, 1946) is an American former professional bodybuilder.  Known early in his career as Robin Robinson, he is also known as The Black Prince and Mr Lifestyle.  He won various ...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #11
+================================================================================
+
+【问题】
+When was the singer of Miss Emily's Picture born?
+
+【正确答案】
+August 11, 1946
+
+【黄金支撑段落】
+  1. Miss Emily's Picture
+  2. John Conlee
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. Vanessa Williams
+      Vanessa Lynn Williams (born March 18, 1963) is an American actress, singer, and fashion designer.  She initially gained recognition as the first African-American recipient of the Miss America title wh...
+
+  [✓] 2. Miss Emily's Picture
+      "Miss Emily's Picture" is a song written by Red Lane, and recorded by American country music artist John Conlee.  It was released in August 1981 as the second single from the album "With Love".  The s...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Vanessa Williams
+      Vanessa Lynn Williams (born March 18, 1963) is an American actress, singer, and fashion designer.  She initially gained recognition as the first African-American recipient of the Miss America title wh...
+
+  [✓] 2. Miss Emily's Picture
+      "Miss Emily's Picture" is a song written by Red Lane, and recorded by American country music artist John Conlee.  It was released in August 1981 as the second single from the album "With Love".  The s...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #12
+================================================================================
+
+【问题】
+Where is the concert venue which hosted the first US performance of "Libuše" located?
+
+【正确答案】
+Midtown Manhattan in New York City,
+
+【黄金支撑段落】
+  1. Libuše (opera)
+  2. Carnegie Hall
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Libuše (opera)
+         is a '"festival opera" in three acts, with music by Bedřich Smetana.  The libretto was originally written in German by Josef Wenzig, and was then translated into Czech by Ervin Špindler.  In Czech ...
+
+  [✗] 2. IF Performance Hall
+      IF Performance Hall is an indoor concert venue in Ankara, founded on 2004.  The venue hosted many concert and entertainment parties, therefore become one of the most popular venues in Turkey.  Fahir Ö...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Libuše (opera)
+         is a '"festival opera" in three acts, with music by Bedřich Smetana.  The libretto was originally written in German by Josef Wenzig, and was then translated into Czech by Ervin Špindler.  In Czech ...
+
+  [✗] 2. IF Performance Hall
+      IF Performance Hall is an indoor concert venue in Ankara, founded on 2004.  The venue hosted many concert and entertainment parties, therefore become one of the most popular venues in Turkey.  Fahir Ö...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #13
+================================================================================
+
+【问题】
+The actress that played the leading role in the independent film "A Perfect Ending" also stars with John Bregar in a 2008 film directed by who?
+
+【正确答案】
+Douglas Jackson
+
+【黄金支撑段落】
+  1. Dead at 17
+  2. Dead at 17
+  3. Barbara Niven
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Barbara Niven
+      Barbara Niven (born February 26, 1953) is an American actress and producer, best known for her performances in Lifetime movies and television roles in "", "One Life to Live", and "Cedar Cove".  Niven ...
+
+  [✗] 2. Siobhan Finneran
+      Siobhan Margaret Finneran (born 27 April 1966) is an English television, film and theatre actress of Irish descent, whose catchphrase "Right.  Mam!"  has been used in several of her programmes.  She m...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Siobhan Finneran
+      Siobhan Margaret Finneran (born 27 April 1966) is an English television, film and theatre actress of Irish descent, whose catchphrase "Right.  Mam!"  has been used in several of her programmes.  She m...
+
+  [✓] 2. Barbara Niven
+      Barbara Niven (born February 26, 1953) is an American actress and producer, best known for her performances in Lifetime movies and television roles in "", "One Life to Live", and "Cedar Cove".  Niven ...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #14
+================================================================================
+
+【问题】
+What Andy Williams' album did a song written by Charles Wesley appear on?
+
+【正确答案】
+The Andy Williams Christmas Album
+
+【黄金支撑段落】
+  1. We Need a Little Christmas (album)
+  2. We Need a Little Christmas (album)
+  3. Hark! The Herald Angels Sing
+  4. Hark! The Herald Angels Sing
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Hark! The Herald Angels Sing
+      "Hark!  The Herald Angels Sing" is a Christmas carol that first appeared in 1739 in the collection "Hymns and Sacred Poems", having been written by Charles Wesley.  Wesley had requested and received s...
+
+  [✗] 2. Hawaiian Wedding Song
+      "Hawaiian Wedding Song" is a traditional pop music song recorded by singer Andy Williams in 1959.  It was adapted from a 1926 love song written by Charles E. King for his operetta, "The Prince of Hawa...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Hark! The Herald Angels Sing
+      "Hark!  The Herald Angels Sing" is a Christmas carol that first appeared in 1739 in the collection "Hymns and Sacred Poems", having been written by Charles Wesley.  Wesley had requested and received s...
+
+  [✗] 2. Hawaiian Wedding Song
+      "Hawaiian Wedding Song" is a traditional pop music song recorded by singer Andy Williams in 1959.  It was adapted from a 1926 love song written by Charles E. King for his operetta, "The Prince of Hawa...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #15
+================================================================================
+
+【问题】
+Why did Rudolf Hess stop serving Hitler in 1941?
+
+【正确答案】
+report Hess's illegal May 1941 flight to Scotland
+
+【黄金支撑段落】
+  1. Karlheinz Pintsch
+  2. Rudolf Hess
+  3. Rudolf Hess
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. St Paul's tram stop
+      St Paul's tram stop is a tram stop serving nearby St Paul's Square, Birmingham, England.  It was opened on 31 May 1999 on the Midland Metro Line 1.  The stop is a short distance west of Birmingham Sno...
+
+  [✓] 2. Rudolf Hess
+      Rudolf Walter Richard Hess (Heß in German; 26 April 1894 – 17 August 1987), was a prominent politician in Nazi Germany.  Appointed Deputy Führer to Adolf Hitler in 1933, he served in this position unt...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. St Paul's tram stop
+      St Paul's tram stop is a tram stop serving nearby St Paul's Square, Birmingham, England.  It was opened on 31 May 1999 on the Midland Metro Line 1.  The stop is a short distance west of Birmingham Sno...
+
+  [✓] 2. Rudolf Hess
+      Rudolf Walter Richard Hess (Heß in German; 26 April 1894 – 17 August 1987), was a prominent politician in Nazi Germany.  Appointed Deputy Führer to Adolf Hitler in 1933, he served in this position unt...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #16
+================================================================================
+
+【问题】
+Prominent Danish Tibetologist Per Kjeld Sørensen is a professor of Central Asian Studies at Leipzig University that was founded by who?
+
+【正确答案】
+Frederick I, Elector of Saxony
+
+【黄金支撑段落】
+  1. Per K. Sørensen
+  2. Leipzig University
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Per K. Sørensen
+      Per Kjeld Sørensen (born 18 December 1950) is a prominent Danish Tibetologist who specialises in Tibetan and Himalayan history, literature and culture.  Since 1994 he has been Professor of Central Asi...
+
+  [✗] 2. Nicholas Sims-Williams
+      Nicholas Sims-Williams (born 11 April 1949, Chatham, Kent) is a professor of the School of Oriental and African Studies (SOAS), University of London, where he is the Research Professor of Iranian and ...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Nicholas Sims-Williams
+      Nicholas Sims-Williams (born 11 April 1949, Chatham, Kent) is a professor of the School of Oriental and African Studies (SOAS), University of London, where he is the Research Professor of Iranian and ...
+
+  [✓] 2. Per K. Sørensen
+      Per Kjeld Sørensen (born 18 December 1950) is a prominent Danish Tibetologist who specialises in Tibetan and Himalayan history, literature and culture.  Since 1994 he has been Professor of Central Asi...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #17
+================================================================================
+
+【问题】
+The facility where Robert Croft worked as a navy instructor was also known as?
+
+【正确答案】
+"Home of the Submarine Force"
+
+【黄金支撑段落】
+  1. Robert Croft (diver)
+  2. Naval Submarine Base New London
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. Naval Consolidated Brig, Miramar
+      Naval Consolidated Brig, Miramar (NAVCONBRIG) is a military prison operated by the U.S. Navy at Marine Corps Air Station Miramar in Miramar, San Diego, California, just under 10 mi north of downtown S...
+
+  [✓] 2. Robert Croft (diver)
+      Robert Croft is a free-diver who, in 1967, became the first person to free-dive beyond the depth of 200 feet.  Croft was a US Navy diving instructor in 1962 at the US Naval Submarine Base New London s...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Naval Consolidated Brig, Miramar
+      Naval Consolidated Brig, Miramar (NAVCONBRIG) is a military prison operated by the U.S. Navy at Marine Corps Air Station Miramar in Miramar, San Diego, California, just under 10 mi north of downtown S...
+
+  [✓] 2. Robert Croft (diver)
+      Robert Croft is a free-diver who, in 1967, became the first person to free-dive beyond the depth of 200 feet.  Croft was a US Navy diving instructor in 1962 at the US Naval Submarine Base New London s...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #18
+================================================================================
+
+【问题】
+Jihad: A Story of the Others is a documentary by the director who is of what descent?
+
+【正确答案】
+Punjabi/Pashtun
+
+【黄金支撑段落】
+  1. Jihad: A Story of the Others
+  2. Deeyah Khan
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✓] 1. Jihad: A Story of the Others
+      JIHAD: a story of the others is a 2015 documentary film by Emmy and Peabody Award winning Norwegian director Deeyah Khan.  The film is produced by Khan's production company Fuuse.  "JIHAD" is the outc...
+
+  [✗] 2. A Jihad for Love
+      A Jihad for Love (also known by the working title In the Name of Allah) is a 2007 documentary film on the coexistence of Islam and homosexuality.  The film is directed by Parvez Sharma, and produced b...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✓] 1. Jihad: A Story of the Others
+      JIHAD: a story of the others is a 2015 documentary film by Emmy and Peabody Award winning Norwegian director Deeyah Khan.  The film is produced by Khan's production company Fuuse.  "JIHAD" is the outc...
+
+  [✗] 2. A Jihad for Love
+      A Jihad for Love (also known by the working title In the Name of Allah) is a 2007 documentary film on the coexistence of Islam and homosexuality.  The film is directed by Parvez Sharma, and produced b...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #19
+================================================================================
+
+【问题】
+Josh Trank and Mike Valerio both work in what industry?
+
+【正确答案】
+entertainment
+
+【黄金支撑段落】
+  1. Josh Trank
+  2. Mike Valerio
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. Drake &amp; Josh
+      Drake & Josh is an American television sitcom created by Dan Schneider for Nickelodeon.  The series follows the lives of two teenage boys with opposite personalities, Drake Parker (Drake Bell) and Jos...
+
+  [✓] 2. Josh Trank
+      Joshua Benjamin "Josh" Trank (born February 19, 1984) is an American film director, screenwriter, and editor.  He is known for directing the 2012 science fiction film "Chronicle" and the 2015 superher...
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Drake &amp; Josh
+      Drake & Josh is an American television sitcom created by Dan Schneider for Nickelodeon.  The series follows the lives of two teenage boys with opposite personalities, Drake Parker (Drake Bell) and Jos...
+
+  [✓] 2. Josh Trank
+      Joshua Benjamin "Josh" Trank (born February 19, 1984) is an American film director, screenwriter, and editor.  He is known for directing the 2012 science fiction film "Chronicle" and the 2015 superher...
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+样本 #20
+================================================================================
+
+【问题】
+Are Dogo Cubano and the Dutch Shepherd both breeds of dog?
+
+【正确答案】
+yes
+
+【黄金支撑段落】
+  1. Dogo Cubano
+  2. Dutch Shepherd
+
+【第 1 跳检索结果】(ECS = 0.50)
+  [✗] 1. Cuban Criollo
+      The Criollo Cubano originates from Spanish horses brought to Cuba by Diego Velázquez in 1751.  There are four different breeds known as criollo: the Cubano de Paso, the Pinto Cubano, the Criollo de Tr...
+
+  [✓] 2. Dogo Cubano
+      Dogo Cubano also known as the Cuban Mastiff, Cuban Dogo and Cuban Dogge is an extinct dog breed from Cuba.  It was of the Bull Mastiff type and was used for dog fighting.
+
+【第 2 跳检索结果】(ECS = 0.50)
+  [✗] 1. Cuban Criollo
+      The Criollo Cubano originates from Spanish horses brought to Cuba by Diego Velázquez in 1751.  There are four different breeds known as criollo: the Cubano de Paso, the Pinto Cubano, the Criollo de Tr...
+
+  [✓] 2. Dogo Cubano
+      Dogo Cubano also known as the Cuban Mastiff, Cuban Dogo and Cuban Dogge is an extinct dog breed from Cuba.  It was of the Bull Mastiff type and was used for dog fighting.
+
+【人工标注】
+失败原因分类：
+  [ ] A. 推理失败 - 检索到了正确段落，但无法正确推理出答案
+  [ ] B. 部分检索失败 - ECS 在 0.3~0.5 区间，检索质量模糊
+  [ ] C. 跨跳链路断裂 - 第1跳和第2跳之间的实体传递失败
+  [ ] D. 其他原因 - 请说明：_______________________
+
+
+================================================================================
+                                     标注统计汇总                                     
+================================================================================
+
+【各类失败原因数量】
+  A. 推理失败：_____ 题
+  B. 部分检索失败：_____ 题
+  C. 跨跳链路断裂：_____ 题
+  D. 其他原因：_____ 题
+
+【结论建议】
+根据标注结果，建议后续研究方向：
+
+如果 A 类（推理失败）占多数：
+  → 检索侧不是主要瓶颈
+  → 转向'推理如何使用证据'方向
+  → RetriPRM 的 RFS（Faithfulness）维度变成核心
+
+如果 B 类（部分检索失败）占多数：
+  → 阈值设置问题
+  → 调整 ECS_BAD_THRESHOLD = 0.5 重跑
+  → 继续原方向
+
+如果 C 类（跨跳链路断裂）占多数：
+  → 跨跳实体传递是核心问题
+  → ChainRAG 类方法的战场
+  → RetriPRM 定位需要微调
