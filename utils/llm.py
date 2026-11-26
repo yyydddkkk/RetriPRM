@@ -19,7 +19,7 @@ def get_qwen_client(api_key: str = None, base_url: str = None, model: str = None
     Returns:
         Configured OpenAI client and model name
     """
-    api_key = api_key or os.getenv("QWEN_API_KEY", "sk-9233a091f6d44f79bdddf896e24cd141")
+    api_key = api_key or os.environ["QWEN_API_KEY"]
     base_url = base_url or "https://dashscope.aliyuncs.com/compatible-mode/v1"
     model = model or "qwen-turbo"
 

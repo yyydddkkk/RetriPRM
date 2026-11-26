@@ -34,7 +34,7 @@ ECS_BAD_THRESHOLD = ECS_PERFECT  # Anything < 1.0 is considered imperfect
 ECS_GOOD_THRESHOLD = ECS_PARTIAL  # >= 0.5 is considered acceptable
 
 # [MODIFIED] Qwen API Configuration
-QWEN_API_KEY = os.getenv("QWEN_API_KEY", "sk-9233a091f6d44f79bdddf896e24cd141")
+QWEN_API_KEY = os.environ["QWEN_API_KEY"]
 QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 QWEN_MODEL = "qwen-turbo"  # Using qwen-turbo for cost efficiency
 

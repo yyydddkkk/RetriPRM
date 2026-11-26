@@ -71,11 +71,15 @@ uv sync
 
 ### 2. 配置 API Key
 
-创建 `.env` 文件：
+从密钥管理器注入环境变量 `QWEN_API_KEY`，或在 Bash 中交互式输入：
 
 ```bash
-QWEN_API_KEY=your_api_key_here
+read -rsp "Qwen API key: " QWEN_API_KEY
+export QWEN_API_KEY
+printf "\n"
 ```
+
+脚本不会自动读取 `.env` 文件，也没有内置密钥。
 
 ### 3. 运行实验
 
